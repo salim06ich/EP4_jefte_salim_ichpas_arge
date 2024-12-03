@@ -34,6 +34,9 @@ h1, h2 {
     font-family: 'Go3v2', sans-serif; 
     font-size: 30px;
 }
+.lead{
+    color: #F5F5F5;
+}
 
 .nav-link::after {
     content: '';
@@ -166,6 +169,14 @@ a:hover {
 }
 
 /* Hover sobre tarjetas */
+.cardo {
+    border: 2px solid #D4AF37; 
+    transition: box-shadow 0.3s ease;
+}
+
+.cardo:hover {
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.5); 
+}
 .card {
     border: 2px solid #D4AF37; 
     transition: box-shadow 0.3s ease;
@@ -189,11 +200,30 @@ a:hover {
     background-color: #FFC1CC; 
 }
 .card img {
+    width: 350px; 
+    height: 250px; 
+    object-fit: cover; 
+    border-radius: 50%; 
+    margin: 0 auto; 
+    
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card img:hover {
+    transform: scale(1.1); /* Aumenta ligeramente el tamaño */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Agrega sombra para dar profundidad */
+}
+.cardo img {
     width: 150px; 
     height: 150px; 
     object-fit: cover; 
     border-radius: 50%; 
     margin: 0 auto; 
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.cardo img:hover {
+    transform: scale(1.1); /* Aumenta ligeramente el tamaño */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Agrega sombra para dar profundidad */
 }
 .custom-paragraph {
     font-family: 'Nunito', sans-serif;
@@ -210,4 +240,43 @@ a:hover {
 .custom-paragraph:hover {
     color: #D72638; 
     transform: scale(1.05); 
+}
+/* Contenedor del slider */
+.bg-slider {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+}
+
+/* Estilo base de las imágenes de fondo */
+.bg-slider::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: opacity 1s ease-in-out;
+    z-index: -1; /* Coloca las imágenes detrás del contenido */
+    background-image: url('../imagen/pexels-amar-17592743.jpg'); /* Primera imagen */
+    opacity: 1;
+}
+
+/* Hover para cambiar las imágenes */
+.bg-slider:hover::before {
+    background-image: url('../imagen/pexels-frans-van-heerden-201846-670705.jpg'); /* Segunda imagen */
+}
+
+/* Alternativas para más imágenes (usando animación) */
+@keyframes slide {
+    0% { background-image: url('../imagen/pexels-viniciusbenedit-3620705.jpg'); }
+    33% { background-image: url('../imagen/pexels-pixabay-357756.jpg'); }
+    66% { background-image: url('../imagen/pexels-amar-17592743.jpg'); }
+    100% { background-image: url('../imagen/pexels-catscoming-955137.jpg'); }
+}
+
+.bg-slider.animate::before {
+    animation: slide 6s infinite ease-in-out;
 }
